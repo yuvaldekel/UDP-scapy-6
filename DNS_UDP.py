@@ -28,7 +28,7 @@ def main():
 
     query_packet = IP(dst = '8.8.8.8')/UDP(sport = 24601,dport = 53)/DNS(rd = 1, qdcount = 1,qd = DNSQR(qname=domain)) 
     reply_packet = sr1(query_packet)
-    #print(reply_packet.show())
+
     ip = find_ip(reply_packet)
     if ip == None:
         print("The server didn't find an answer for the specified domain \"{}\"".format(domain))
